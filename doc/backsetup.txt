@@ -1,0 +1,22 @@
+■ 数据库搭建：
+	1. 数据库本地搭建：
+		下载地址：https://downloads.mysql.com/archives/community/
+		版本：Windows (x86, 64-bit), ZIP Archive	Oct 7, 2018	192.3M	Download  (mysql-8.0.13-winx64.zip)
+	2. 解压本地地址：E:\mysql\mysql-8.0.13-winx64.zip  -> (更名)E:\mysql\mysql
+	3. E:\mysql\mysql目录下创建mysql初始环境my.ini文件，文件内容见E:\mysql\mysql\my.ini
+	4. cmd 后 netstat -an 查看端口占用情况，使用8887为端口作为数据库连接端口
+	5. cmd右键管理员运行	后执行
+			E:												// 切换到E盘
+			cd /mysql/mysql/bin			// 到bin目录下
+			mysqld --initialize --console		// 初始化my.ini文件创建数据库到/mysql/mysql/data目录
+			(初始密码会显示：A temporary password is generated for root@localhost: 9seDGc9AlS,d)
+			mysqld install						// 安装mysql服务
+			mysql -u root -p					// 以root为用户名登录
+			9seDGc9AlS,d						// 密码输入
+			ALTER USER 'root'@'localhost' IDENTIFIED BY 'pyjiqyt';			// 更改root密码为‘pyjiqyt’
+			(总结几个mysql的使用顺序：
+					1. mysqld install：将 MySQL 服务器注册为 Windows 服务，不直接创建数据库。
+					2. 启动 MySQL 服务：使用 net start mysql 启动服务。
+					3. 连接 MySQL 服务器：使用 MySQL 客户端连接到服务器。
+					4. 创建数据库和表：使用 SQL 命令创建具体的数据库和表。)
+	6. 启动mysql workbench对数据库进行键库等操作；
